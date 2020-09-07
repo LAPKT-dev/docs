@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Modules and Planners - LAPKT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Modules and Planners";
+    var mkdocs_page_input_path = "modules.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> LAPKT</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gettingStarted/">Getting Started</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Modules and Planners</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#planners">Planners</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ff">FF</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bfs_f">BFS_f</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#anytime-bfs_f">Anytime BFS_f</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blind-width-based-search-planners">Blind &amp; Width-Based Search Planners</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#iw">IW</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#iw-plus">IW Plus</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#siw">SIW</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#siw-plus">SIW Plus</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dfs-plus">DFS Plus</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generic-bfs-with-optional-heuristics">Generic BFS with Optional Heuristics</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#search-algorithms-implemented">Search Algorithms Implemented</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#blind-search">Blind Search</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#breadth-first-search">Breadth-First search</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#width-based-search">Width-Based Search</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#iterated-width">Iterated Width</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#iterated-width-plus">Iterated Width Plus</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#serialized-iterated-width">Serialized Iterated Width</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#serialized-iterated-width-plus">Serialized Iterated Width Plus</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#depth-first-search-width">Depth-first Search Width</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#heuristic-search">Heuristic Search</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#best-first-search">Best-First search</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#contract-search">Contract Search</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ehc">EHC</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#heuristics-implemented">Heuristics Implemented</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#critical-paths">Critical Paths</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#h1">h\^1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#h2">h\^2</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#delete-relaxations">Delete Relaxations</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#h_max-h_add">h_max / h_add</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#hff">h\^ff</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#relaxed-planning-graph-heuristics">Relaxed Planning Graph Heuristics</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#hc">h\^C</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#counting-heuristic">Counting heuristic</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#unachieved-goals">Unachieved Goals</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#unachieved-landmarks">Unachieved Landmarks</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#novelty">Novelty</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#novelty-plus">Novelty Plus</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reachability">Reachability</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parsers-supported">Parsers Supported</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ff-parser">FF Parser</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fd-parser">FD-parser</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#problem-representation-strips-model">Problem Representation (STRIPS Model)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#strips-problem-and-useful-information-like-mutexes-if-computed">STRIPS Problem and useful information like mutexes (if computed)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strips-states">STRIPS States</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#actions-and-fluents">Actions and Fluents</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#successor-generator">Successor Generator</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-experiments">Running Experiments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ff-interface-example">FF-Interface Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fd-interface-example">FD-Interface Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#agnostic-interface-examples">Agnostic Interface Examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#assembling-strips-problem-programatically">Assembling STRIPS problem programatically</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#successor-generators">Successor Generators</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#open-lists">Open Lists</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bfs-engine-variations">BFS engine variations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bfs-h_max-greedydelayedanytime-ff-parser">BFS + h_max (greedy|delayed|anytime) + FF-parser</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wa-variations-landmarks">WA* variations + landmarks</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#deadline-aware-search-engine">Deadline Aware Search engine</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#breadth-first-search-ff-parser">Breadth-First search + FF-parser</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#h_c-compilations-ff-parser">h_C compilations + FF-parser</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#replanner-changing-init-and-goal-situation-on-the-fly">Replanner (changing init and goal situation on the fly)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#width-based-algorithm-fd-parser">Width-Based algorithm + FD parser</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../projects/">Projects</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/LAPKT-dev/LAPKT-public/">GitHub Code</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LAPKT</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Modules and Planners</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="modules-and-planners">Modules and Planners<a class="headerlink" href="#modules-and-planners" title="Permanent link">Link</a></h1>
+<h2 id="planners">Planners<a class="headerlink" href="#planners" title="Permanent link">Link</a></h2>
+<p>Planners by default use the FD parser. A version of each planner exist
+using FF parser instead. 3 planners where submitted to Satisficing and
+Agile track in IPC 2014.</p>
+<p>They support action costs and Conditional Effects. See
+<a href="Documentation#Parsers_Supported" title="wikilink">Documentation#Parsers_Supported</a>
+to know how to tell the parser to ignore or account for action costs.</p>
+<h3 id="ff">FF<a class="headerlink" href="#ff" title="Permanent link">Link</a></h3>
+<p>FF planner as described in JAIR 2001. Goal agenda is not computed by
+default.</p>
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">ff</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">ff</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--output arg          Output file for plan</span>
+</code></pre></div>
+
+
+<h3 id="bfs_f">BFS_f<a class="headerlink" href="#bfs_f" title="Permanent link">Link</a></h3>
+<p>Greedy Best First Search Planner that uses f(n) = novelty(n), breaking
+ties with lm_count(n) and h_rel_plan(n). described in <a href="http://ebooks.iospress.nl/Download/Pdf/7029">Lipovetzky et
+al. at ECAI 2012</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">bfs_f</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">bfs</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="n">Ignores</span> <span class="n">costs</span><span class="p">:</span>
+<span class="p">.</span><span class="o">/</span><span class="n">bfs_f_unit_cost</span><span class="p">.</span><span class="n">py</span>  <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">bfs_f</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">bfs_f</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                          Show help message</span>
+  <span class="c1">--domain arg                    Input PDDL domain description</span>
+  <span class="c1">--problem arg                   Input PDDL problem description</span>
+  <span class="c1">--bound arg (=2)                Max width w for novelty (default 2)</span>
+  <span class="c1">--output arg                    Output file for plan</span>
+  <span class="c1">--one-ha-per-fluent arg (=0)    Extract only one helpful action per fluent</span>
+  <span class="c1">--use-original-ff-heur arg (=0) Use original FF heuristic computed by layers</span>
+</code></pre></div>
+
+
+<h4 id="anytime-bfs_f">Anytime BFS_f<a class="headerlink" href="#anytime-bfs_f" title="Permanent link">Link</a></h4>
+<p>Runs First SIW, then BFS_f with the bound found by SIW, and finally an
+anytime version using RWA* described in <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/ipc8_siw_bfs_probe.pdf">IPC 2014
+Booklet</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">at_bfs_f</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">at_bfs</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="p">.</span><span class="o">/</span><span class="n">at_bfs_f</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="k">no</span><span class="o">-</span><span class="n">bfs_f</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="p">.</span><span class="o">/</span><span class="n">at_bfs_f</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="k">no</span><span class="o">-</span><span class="n">siw</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="p">.</span><span class="o">/</span><span class="n">at_bfs_f</span><span class="o">-</span><span class="k">no</span><span class="o">-</span><span class="n">siw</span><span class="o">-</span><span class="k">no</span><span class="o">-</span><span class="n">bfs_f</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">at_bfs_f</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">at_bfs_f</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                       Show help message</span>
+  <span class="c1">--domain arg                 Input PDDL domain description</span>
+  <span class="c1">--problem arg                Input PDDL problem description</span>
+  <span class="c1">--iw-bound arg (=2)          Max width w for SIW (default 2)</span>
+  <span class="c1">--max-novelty arg (=2)       Max width w for novelty heuristic in BFS(f) </span>
+                               <span class="p">(</span><span class="k">default</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="c1">--output arg                 Output file for plan</span>
+  <span class="c1">--one-ha-per-fluent arg (=0) Extract only one helpful action per fluent</span>
+  <span class="c1">--disable-siw arg (=0)       Disable SIW stage</span>
+  <span class="c1">--disable-bfs-f arg (=0)     Disable BFS(f) stage</span>
+</code></pre></div>
+
+
+<h3 id="blind-width-based-search-planners">Blind &amp; Width-Based Search Planners<a class="headerlink" href="#blind-width-based-search-planners" title="Permanent link">Link</a></h3>
+<h4 id="iw">IW<a class="headerlink" href="#iw" title="Permanent link">Link</a></h4>
+<p>Iterative Width is a blind search planner that exploits the low width of
+classical benchmark when goals are atomic. For conjuctive goals look at
+SIW, SIW+ or DFS+ described in <a href="http://ebooks.iospress.nl/Download/Pdf/7029">Lipovetzky et al. at ECAI
+2012</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">iw</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">iw</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">iw</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">iw</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--bound arg (=1)      Max width w for IW(w)</span>
+  <span class="c1">--atomic arg (=1)     Runs IW(w) over each atomic goal of the problem (bool)</span>
+  <span class="c1">--output arg          Output plan file</span>
+</code></pre></div>
+
+
+<h4 id="iw-plus">IW Plus<a class="headerlink" href="#iw-plus" title="Permanent link">Link</a></h4>
+<p>IW+ relaxes IW novelty pruning. described in <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/width_ecai14.pdf">Lipovetzky et al. at ECAI
+2014</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">iw</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">rp_iw</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">iw</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">rp_iw</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--bound arg (=2)      Max width w for IW(w)</span>
+  <span class="c1">--output arg          Output plan file</span>
+</code></pre></div>
+
+
+<h4 id="siw">SIW<a class="headerlink" href="#siw" title="Permanent link">Link</a></h4>
+<p>Serialized Iterative Width is a blind search planner competitive that
+exploits the low width of classical benchmark through IW and simple goal
+serialization described in <a href="http://ebooks.iospress.nl/Download/Pdf/7029">Lipovetzky et al. at ECAI
+2012</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">siw</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">siw</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="n">Ignores</span> <span class="n">costs</span><span class="p">:</span>
+<span class="p">.</span><span class="o">/</span><span class="n">siw_unit_cost</span><span class="p">.</span><span class="n">py</span>  <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">siw</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">siw</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--bound arg (=1)      Max width w for IW(w)</span>
+  <span class="c1">--output arg          Output plan file</span>
+</code></pre></div>
+
+
+<h4 id="siw-plus">SIW Plus<a class="headerlink" href="#siw-plus" title="Permanent link">Link</a></h4>
+<p>SIW+ relaxes IW novelty pruning. Blind Search Planner with high
+performance, closer to FF over IPC\'11 benchmark described in
+<a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/width_ecai14.pdf">Lipovetzky et al. at ECAI
+2014</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">siw_plus</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">siw_plus</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="n">Ignores</span> <span class="n">costs</span><span class="p">:</span>
+<span class="p">.</span><span class="o">/</span><span class="n">siw_plus_unit_cost</span><span class="p">.</span><span class="n">py</span>  <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">siw_plus</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">siw_plus</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--bound arg (=1)      Max width w for IW(w)</span>
+  <span class="c1">--output arg          Output plan file</span>
+</code></pre></div>
+
+
+<h4 id="dfs-plus">DFS Plus<a class="headerlink" href="#dfs-plus" title="Permanent link">Link</a></h4>
+<p>DFS+ Extends SIW+ Goal serialization. Blind Search planner with high
+performance, closer to LAMA\'11 and BFS_f over IPC\'11 benchmark
+described in <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/width_ecai14.pdf">Lipovetzky et al. at ECAI
+2014</a></p>
+<ul>
+<li>FD-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">dfs_plus</span>
+
+<span class="n">Command</span><span class="p">:</span> 
+<span class="p">.</span><span class="o">/</span><span class="n">dfs_plus</span><span class="p">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="n">Ignores</span> <span class="n">costs</span><span class="p">:</span>
+<span class="p">.</span><span class="o">/</span><span class="n">dfs_plus_unit_cost</span><span class="p">.</span><span class="n">py</span>  <span class="o">&lt;</span><span class="n">domain_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem_file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">plan_output</span><span class="o">&gt;</span>
+
+<span class="k">Options</span> <span class="n">specified</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">script</span>
+</code></pre></div>
+
+
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">dfs_plus</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">dfs_plus</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--bound arg (=2)      Max width w for IW(w)</span>
+  <span class="c1">--output arg          Output plan file</span>
+</code></pre></div>
+
+
+<h3 id="generic-bfs-with-optional-heuristics">Generic BFS with Optional Heuristics<a class="headerlink" href="#generic-bfs-with-optional-heuristics" title="Permanent link">Link</a></h3>
+<p>By default BFS is set to GBFS</p>
+<ul>
+<li>FF-parser</li>
+</ul>
+<!-- -->
+
+<div class="codehilite"><pre><span></span><code><span class="n">planners</span><span class="o">/</span><span class="n">generic</span><span class="o">-</span><span class="n">best_first</span><span class="o">-</span><span class="n">ffparser</span>
+
+<span class="n">Command</span><span class="p">:</span> <span class="p">.</span><span class="o">/</span><span class="n">bfs</span> <span class="c1">--domain &lt;domain_file&gt; --problem &lt;problem_file&gt; --output &lt;plan_output&gt;</span>
+
+<span class="k">Options</span><span class="p">::</span>
+  <span class="c1">--help                Show help message</span>
+  <span class="c1">--domain arg          Input PDDL domain description</span>
+  <span class="c1">--problem arg         Input PDDL problem description</span>
+  <span class="c1">--heuristic arg (=1)  1: H_add (default 1)</span>
+                        <span class="mi">2</span><span class="p">:</span> <span class="n">H_add_Rp</span>
+                        <span class="mi">3</span><span class="p">:</span> <span class="n">H_max_Rp</span>
+                        <span class="mi">4</span><span class="p">:</span> <span class="n">H_add_FF_Rp</span>
+                        <span class="mi">5</span><span class="p">:</span> <span class="n">H_max_FF_Rp</span>
+                        <span class="mi">6</span><span class="p">:</span> <span class="n">H_layered_FF_Rp</span> <span class="p">(</span> <span class="n">FF_</span><span class="o">*</span><span class="p">,</span> <span class="k">as</span> <span class="k">in</span> <span class="n">Journal</span> <span class="n">Paper</span><span class="p">)</span>
+  <span class="c1">--anytime arg (=0)    Anytime (default False)</span>
+  <span class="c1">--output arg          Output file for plan</span>
+</code></pre></div>
+
+
+<h2 id="search-algorithms-implemented">Search Algorithms Implemented<a class="headerlink" href="#search-algorithms-implemented" title="Permanent link">Link</a></h2>
+<p>All Search Algorithms implement Forward Search by accessing</p>
+<div class="codehilite"><pre><span></span><code><span class="err"> interfaces/agnostic/fwd_search_prob.hxx</span>
+</code></pre></div>
+
+
+<p>decoupling the search algrotihm from successor generation, applicability
+function, etc. Intended to easily run this algorithms on backward
+search.</p>
+<h3 id="blind-search">Blind Search<a class="headerlink" href="#blind-search" title="Permanent link">Link</a></h3>
+<p>No use of heuristics.</p>
+<h4 id="breadth-first-search">Breadth-First search<a class="headerlink" href="#breadth-first-search" title="Permanent link">Link</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/brfs.hxx</span>
+</code></pre></div>
+
+
+<h3 id="width-based-search">Width-Based Search<a class="headerlink" href="#width-based-search" title="Permanent link">Link</a></h3>
+<p>described in <a href="http://ebooks.iospress.nl/Download/Pdf/7029">Lipovetzky et al. at ECAI
+2012</a>, and <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/width_ecai14.pdf">Lipovetzky et
+al. at ECAI
+2014</a></p>
+<h4 id="iterated-width">Iterated Width<a class="headerlink" href="#iterated-width" title="Permanent link">Link</a></h4>
+<p>Breadth-First search with novelty pruning.</p>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/iw.hxx</span>
+</code></pre></div>
+
+
+<h4 id="iterated-width-plus">Iterated Width Plus<a class="headerlink" href="#iterated-width-plus" title="Permanent link">Link</a></h4>
+<p>Breadth-First search with a relaxed novelty pruning.</p>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/rp_iw.hxx</span>
+</code></pre></div>
+
+
+<h4 id="serialized-iterated-width">Serialized Iterated Width<a class="headerlink" href="#serialized-iterated-width" title="Permanent link">Link</a></h4>
+<p>Uses iterated width to both solve and serialize the goals. The
+serialization is a form of Hill-Climbing over the set of goals</p>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/siw.hxx</span>
+</code></pre></div>
+
+
+<h4 id="serialized-iterated-width-plus">Serialized Iterated Width Plus<a class="headerlink" href="#serialized-iterated-width-plus" title="Permanent link">Link</a></h4>
+<p>Uses iterated width plus to both solve and serialize the goals. The
+serialization is a form of Hill-Climbing over the set of goals</p>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/siw_plus.hxx</span>
+</code></pre></div>
+
+
+<h4 id="depth-first-search-width">Depth-first Search Width<a class="headerlink" href="#depth-first-search-width" title="Permanent link">Link</a></h4>
+<p>Uses iterated width to both solve and serialize the goals. DFS in the
+space of serialization induced by bounded Iterative Width.</p>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/dfs_plus.hxx</span>
+</code></pre></div>
+
+
+<h3 id="heuristic-search">Heuristic Search<a class="headerlink" href="#heuristic-search" title="Permanent link">Link</a></h3>
+<h4 id="best-first-search">Best-First search<a class="headerlink" href="#best-first-search" title="Permanent link">Link</a></h4>
+<h5 id="greedy-best-first-search">Greedy Best First Search<a class="headerlink" href="#greedy-best-first-search" title="Permanent link">Link</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/at_gbfs.hxx</span>
+</code></pre></div>
+
+
+<h5 id="any-time-best-first-search">Any-time Best First Search<a class="headerlink" href="#any-time-best-first-search" title="Permanent link">Link</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/at_bfs.hxx</span>
+</code></pre></div>
+
+
+<h5 id="any-time-best-first-search-with-two-open-lists">Any-time Best First Search with two open lists<a class="headerlink" href="#any-time-best-first-search-with-two-open-lists" title="Permanent link">Link</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="err"> include/aptk/at_bfs_dq.hxx</span>
+</code></pre></div>
+
+
+<p>The PREFERRED list, for nodes generated by preferred operators, and the
+OPEN list, for the rest.</p>
+<h5 id="best-first-search-with-three-open-lists-and-two-heuristic-estimators">Best First Search with three open lists and two heuristic estimators<a class="headerlink" href="#best-first-search-with-three-open-lists-and-two-heuristic-estimators" title="Permanent link">Link</a></h5>
+<div class="codehilite"><pre><span></span><code><span class="err">include/aptk/at_bfs_dq_mh.hxx</span>
+</code></pre></div>
+
+
+<p>The search frontier is split into three lists:</p>
+<ul>
+<li>BOTH: holds nodes generated by actions deemed as \'preferred\' by
+    both heuristic</li>
+</ul>
+<p>estimators</p>
+<ul>
+<li>PREFERRED: holds nodes generated by actions deemed as \'preferred\'
+    by the</li>
+</ul>
+<p>primary heuristic estimator</p>
+<ul>
+<li>OPEN: holds nodes generated by actions not deemed as \'preferred\'
+    by the primary</li>
+</ul>
+<p>heuristic estimator</p>
+<h5 id="any-time-weighted-a">Any-time Weighted A*<a class="headerlink" href="#any-time-weighted-a" title="Permanent link">Link</a></h5>
+<p>Weight W decaying according to fixed decay parameter. Variants include
+single queue and multiple queue (either with one or two heuristic
+estimators).</p>
+<div class="codehilite"><pre><span></span><code><span class="err">include/aptk/at_wbfs.hxx</span>
+<span class="err">include/aptk/at_wbfs_dq.hxx</span>
+<span class="err">include/aptk/at_wbfs_dq_mh.hxx</span>
+</code></pre></div>
+
+
+<h5 id="any-time-restarting-weighted-a">Any-time Restarting Weighted A*<a class="headerlink" href="#any-time-restarting-weighted-a" title="Permanent link">Link</a></h5>
+<p>described in <a href="http://www.aaai.org/ocs/index.php/ICAPS/ICAPS10/paper/download/1437/1541">Ricther et al. at ICAPS
+2010</a>
+with weight W decaying according to fixed decay parameter. Variants
+include single queue and multiple queue (either with one or two
+heuristic estimators).</p>
+<div class="codehilite"><pre><span></span><code><span class="err">include/aptk/at_rwbfs.hxx</span>
+<span class="err">include/aptk/at_rwbfs_dq.hxx</span>
+<span class="err">include/aptk/at_rwbfs_dq_mh.hxx</span>
+</code></pre></div>
+
+
+<h4 id="contract-search">Contract Search<a class="headerlink" href="#contract-search" title="Permanent link">Link</a></h4>
+<h5 id="the-deadline-aware-search-algorithm">The Deadline Aware Search algorithm<a class="headerlink" href="#the-deadline-aware-search-algorithm" title="Permanent link">Link</a></h5>
+<p>described in <a href="http://www.aaai.org/ocs/index.php/SOCS/SOCS11/paper/viewFile/4030/4356">Dionne et al. at SOCS
+2011</a></p>
+<div class="codehilite"><pre><span></span><code><span class="err">include/aptk/das.hxx</span>
+</code></pre></div>
+
+
+<h4 id="ehc">EHC<a class="headerlink" href="#ehc" title="Permanent link">Link</a></h4>
+<p>Enforced Hill Climbing as in JAIR 2001.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">include/aptk/ff_ehc.hxx</span>
+</code></pre></div>
+
+
+<h2 id="heuristics-implemented">Heuristics Implemented<a class="headerlink" href="#heuristics-implemented" title="Permanent link">Link</a></h2>
+<h3 id="critical-paths">Critical Paths<a class="headerlink" href="#critical-paths" title="Permanent link">Link</a></h3>
+<h4 id="h1">h\^1<a class="headerlink" href="#h1" title="Permanent link">Link</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/h_1.hxx</span>
+</code></pre></div>
+
+
+<h4 id="h2">h\^2<a class="headerlink" href="#h2" title="Permanent link">Link</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/h_2.hxx</span>
+</code></pre></div>
+
+
+<h3 id="delete-relaxations">Delete Relaxations<a class="headerlink" href="#delete-relaxations" title="Permanent link">Link</a></h3>
+<hr />
+<h4 id="h_max-h_add">h_max / h_add<a class="headerlink" href="#h_max-h_add" title="Permanent link">Link</a></h4>
+<p>Same implementation as h\^1. h_add and h_max differ only through the
+evaluation function, which can be specified. Dijskstra Based
+implementation</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/h_1.hxx</span>
+</code></pre></div>
+
+
+<p>Relaxed Planning Graph implementation</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/layered_h_max.hxx</span>
+</code></pre></div>
+
+
+<h4 id="hff">h\^ff<a class="headerlink" href="#hff" title="Permanent link">Link</a></h4>
+<p>Original FF heuristic computation from JAIR 2001 paper</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/ff_rp_heuristic.hxx</span>
+</code></pre></div>
+
+
+<h4 id="relaxed-planning-graph-heuristics">Relaxed Planning Graph Heuristics<a class="headerlink" href="#relaxed-planning-graph-heuristics" title="Permanent link">Link</a></h4>
+<p>Computes relaxed plan heuristics backwards from the goal based on
+best_supporters function. <a href="http://ebooks.iospress.nl/Download/Pdf/4439">Keyder et al. ECAI
+2008</a> h_1 and h_add
+natively define best supporters, although other heuristics could be used
+too.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/rp_heuristic.hxx</span>
+</code></pre></div>
+
+
+<h4 id="hc">h\^C<a class="headerlink" href="#hc" title="Permanent link">Link</a></h4>
+<p>Semi Relaxed Heuristic by introducing special fluents that explicitly
+represent conjunctions of fluents <a href="http://www.aaai.org/ocs/index.php/ICAPS/ICAPS12/paper/viewFile/4568%26lt%3B/4722">Keyder et al. ICAPS
+2012</a></p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/h_C.hxx</span>
+</code></pre></div>
+
+
+<h3 id="counting-heuristic">Counting heuristic<a class="headerlink" href="#counting-heuristic" title="Permanent link">Link</a></h3>
+<h4 id="unachieved-goals">Unachieved Goals<a class="headerlink" href="#unachieved-goals" title="Permanent link">Link</a></h4>
+<p>Counts the number of unachieved goals</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/h_unsat.hxx</span>
+</code></pre></div>
+
+
+<h4 id="unachieved-landmarks">Unachieved Landmarks<a class="headerlink" href="#unachieved-landmarks" title="Permanent link">Link</a></h4>
+<p>Counts the number of unachieved landmarks. Landmark graph is built from
+And/Or Graphs <a href="http://ebooks.iospress.nl/Download/Pdf/5793">Keyder et al. ECAI
+2010</a></p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/landmark_count.hxx</span>
+</code></pre></div>
+
+
+<h4 id="novelty">Novelty<a class="headerlink" href="#novelty" title="Permanent link">Link</a></h4>
+<p>Counts the size of the smallest tuple made true by a given state for the
+first time in the search <a href="http://ebooks.iospress.nl/Download/Pdf/7029">Lipovetzky et al. at ECAI
+2012</a></p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/novelty.hxx</span>
+</code></pre></div>
+
+
+<h4 id="novelty-plus">Novelty Plus<a class="headerlink" href="#novelty-plus" title="Permanent link">Link</a></h4>
+<p>Relaxed versioin of Novelty <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/width_ecai14.pdf">Lipovetzky et al. at ECAI
+2014</a></p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/novelty.hxx</span>
+</code></pre></div>
+
+
+<h3 id="reachability">Reachability<a class="headerlink" href="#reachability" title="Permanent link">Link</a></h3>
+<p>Naive implementation for testing reachability</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/reachability.hxx</span>
+</code></pre></div>
+
+
+<p>Watchlist-based implementation for testing reachability:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/watch_list_succ_gen.hxx</span>
+</code></pre></div>
+
+
+<p>(see the \"is_reachable(const State&amp;)\" method)</p>
+<h2 id="parsers-supported">Parsers Supported<a class="headerlink" href="#parsers-supported" title="Permanent link">Link</a></h2>
+<p>We currently ported FF-Parser and FD-Parser</p>
+<h3 id="ff-parser">FF Parser<a class="headerlink" href="#ff-parser" title="Permanent link">Link</a></h3>
+<p>FF-Parser is based on bison and flex. It\'s compiled as an independent
+library in</p>
+<div class="codehilite"><pre><span></span><code><span class="err">external/libff</span>
+</code></pre></div>
+
+
+<p>and connected to the toolkit in</p>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/ff-wrapped/ff_to_aptk.hxx</span>
+<span class="err">interfaces/ff-wrapped/ff_to_aptk.hxx</span>
+</code></pre></div>
+
+
+<p>creating a STRIPS Problem instance.</p>
+<p><strong>Action costs</strong> can be ignored by setting the ignore_action_costs =
+true</p>
+<div class="codehilite"><pre><span></span><code><span class="n">void</span> <span class="n">get_problem_description</span><span class="p">(</span>  <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">pddl_domain_path</span><span class="p">,</span>
+                    <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">pddl_problem_path</span><span class="p">,</span>
+                    <span class="n">STRIPS_Problem</span><span class="o">&amp;</span> <span class="n">strips_problem</span><span class="p">,</span>
+                    <span class="n">bool</span> <span class="n">ignore_action_costs</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="n">bool</span> <span class="n">get_detailed_fluent_names</span> <span class="o">=</span> <span class="k">false</span> <span class="p">);</span>
+
+<span class="n">aptk</span><span class="p">::</span><span class="n">FF_Parser</span><span class="p">::</span><span class="n">get_problem_description</span><span class="p">(...,</span><span class="k">true</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="fd-parser">FD-parser<a class="headerlink" href="#fd-parser" title="Permanent link">Link</a></h3>
+<p>FD-Parser is written in python. It\'s located in</p>
+<div class="codehilite"><pre><span></span><code><span class="err">external/fd</span>
+</code></pre></div>
+
+
+<p>and connected to the toolkit in</p>
+<div class="codehilite"><pre><span></span><code><span class="err">planners/python/agnostic/py_strips_prob.hxx</span>
+<span class="err">planners/python/agnostic/py_strips_prob.cxx</span>
+</code></pre></div>
+
+
+<p>creating a STRIPS Problem instance.</p>
+<p><strong>Action costs</strong> can be ignored by setting in your python script</p>
+<div class="codehilite"><pre><span></span><code><span class="err">task.ignore_action_costs = True</span>
+</code></pre></div>
+
+
+<p>as it\'s done for example in</p>
+<div class="codehilite"><pre><span></span><code><span class="err">/planners/bfs_f/bfs_f_unit_cost.py</span>
+</code></pre></div>
+
+
+<h2 id="problem-representation-strips-model">Problem Representation (STRIPS Model)<a class="headerlink" href="#problem-representation-strips-model" title="Permanent link">Link</a></h2>
+<h3 id="strips-problem-and-useful-information-like-mutexes-if-computed">STRIPS Problem and useful information like mutexes (if computed)<a class="headerlink" href="#strips-problem-and-useful-information-like-mutexes-if-computed" title="Permanent link">Link</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/strips_prob.cxx  </span>
+<span class="err">interfaces/agnostic/strips_prob.hxx</span>
+</code></pre></div>
+
+
+<h3 id="strips-states">STRIPS States<a class="headerlink" href="#strips-states" title="Permanent link">Link</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/strips_state.cxx    </span>
+<span class="err">interfaces/agnostic/strips_state.hxx</span>
+</code></pre></div>
+
+
+<h3 id="actions-and-fluents">Actions and Fluents<a class="headerlink" href="#actions-and-fluents" title="Permanent link">Link</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">interfaces</span><span class="o">/</span><span class="n">agnostic</span><span class="o">/</span><span class="n">fluent</span><span class="p">.</span><span class="n">cxx</span>  
+<span class="n">interfaces</span><span class="o">/</span><span class="n">agnostic</span><span class="o">/</span><span class="n">fluent</span><span class="p">.</span><span class="n">hxx</span>
+
+<span class="n">interfaces</span><span class="o">/</span><span class="n">agnostic</span><span class="o">/</span><span class="n">action</span><span class="p">.</span><span class="n">cxx</span>  
+<span class="n">interfaces</span><span class="o">/</span><span class="n">agnostic</span><span class="o">/</span><span class="n">action</span><span class="p">.</span><span class="n">hxx</span>
+
+<span class="n">interfaces</span><span class="o">/</span><span class="n">agnostic</span><span class="o">/</span><span class="n">cond_eff</span><span class="p">.</span><span class="n">cxx</span>    
+<span class="n">interfaces</span><span class="o">/</span><span class="n">agnostic</span><span class="o">/</span><span class="n">cond_eff</span><span class="p">.</span><span class="n">hxx</span>
+</code></pre></div>
+
+
+<h3 id="successor-generator">Successor Generator<a class="headerlink" href="#successor-generator" title="Permanent link">Link</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="err">interfaces/agnostic/succ_gen.cxx</span>
+<span class="err">interfaces/agnostic/succ_gen.hxx</span>
+</code></pre></div>
+
+
+<h2 id="running-experiments">Running Experiments<a class="headerlink" href="#running-experiments" title="Permanent link">Link</a></h2>
+<p>Scripts for running experiments, profiling, benchmarking and creating
+tables with Coverage, IPC Time and Quality Score are available</p>
+<div class="codehilite"><pre><span></span><code><span class="n">benchmarks</span><span class="o">/</span><span class="n">run</span><span class="p">.</span><span class="n">py</span>
+
+<span class="o">#</span> <span class="n">Dependencies</span><span class="o">/</span><span class="n">Prerequisites</span><span class="p">:</span>
+<span class="o">#</span>   <span class="o">-</span> <span class="n">valgrind</span>
+<span class="o">#</span>   <span class="o">-</span> <span class="n">timeout</span>
+<span class="o">#</span>   <span class="o">-</span> <span class="n">dot</span> <span class="p">(</span><span class="n">graphviz</span><span class="p">)</span>
+<span class="o">#</span>   <span class="o">-</span> <span class="n">krtoolkit</span>
+
+ <span class="k">Usage</span><span class="p">:</span>
+    <span class="n">python</span> <span class="n">run</span><span class="p">.</span><span class="n">py</span> <span class="n">profile</span> <span class="o">&lt;</span><span class="n">executable</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">ipc</span> <span class="n">directory</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">domain</span> <span class="n">pddl</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">problem</span> <span class="n">pddl</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="n">python</span> <span class="n">run</span><span class="p">.</span><span class="n">py</span> <span class="n">benchmark</span> <span class="o">&lt;</span><span class="n">executable</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">ipc</span> <span class="n">directory</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">results</span> <span class="n">directory</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">domain</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="n">python</span> <span class="n">run</span><span class="p">.</span><span class="n">py</span> <span class="n">compare</span> <span class="o">&lt;</span><span class="n">directories</span> <span class="k">with</span> <span class="p">,</span> <span class="n">separated</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">ipc</span> <span class="n">directory</span><span class="o">&gt;</span>
+    <span class="n">python</span> <span class="n">run</span><span class="p">.</span><span class="n">py</span> <span class="n">clean</span>
+</code></pre></div>
+
+
+<p>Some Benchmark domains can be found at</p>
+<div class="codehilite"><pre><span></span><code><span class="err">benchmarks/ipc-2006/</span>
+<span class="err">benchmarks/ipc-2011/</span>
+<span class="err">benchmarks/ipc-2014/</span>
+</code></pre></div>
+
+
+<p>To use run.py script over new sets of benchmarks instead of specific
+domains, edit</p>
+<div class="codehilite"><pre><span></span><code><span class="err">benchmarks/domains.py</span>
+</code></pre></div>
+
+
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">Link</a></h2>
+<h3 id="ff-interface-example">FF-Interface Example<a class="headerlink" href="#ff-interface-example" title="Permanent link">Link</a></h3>
+<p>The example for the 'ff parser' interface can be found on</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* examples/ff-interface</span>
+</code></pre></div>
+
+
+<h3 id="fd-interface-example">FD-Interface Example<a class="headerlink" href="#fd-interface-example" title="Permanent link">Link</a></h3>
+<p>The example for the 'fD parser' interface can be found on</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* examples/fd-interface</span>
+</code></pre></div>
+
+
+<p>This is a very simple example that shows the basics for interfacing
+lwaptk with Fast Downward parser. In order to build the example issue
+the command:</p>
+<div class="codehilite"><pre><span></span><code>$ ./build.py
+</code></pre></div>
+
+
+<p>and to run the example:</p>
+<div class="codehilite"><pre><span></span><code>$ ./parser.py &lt;path to pddl domain file&gt; &lt;path to pddl problem file&gt;
+</code></pre></div>
+
+
+<p>if everything is working as it should, you should see FD parsing output
+on the standard output, as well as a dump of the grounded actions.</p>
+<p>Note that this will copy the folder externals/fd to the local directory,
+so DO NOT add it to the repository. If you need to do customize Fast
+Downward parsing scripts, just edit build.py to avoid it clobbering your
+local copy.</p>
+<h3 id="agnostic-interface-examples">Agnostic Interface Examples<a class="headerlink" href="#agnostic-interface-examples" title="Permanent link">Link</a></h3>
+<p>The examples for the 'planner agnostic' interface can be found on</p>
+<p>examples/agnostic-examples</p>
+<p>and cover the following topics:</p>
+<h4 id="assembling-strips-problem-programatically">Assembling STRIPS problem programatically<a class="headerlink" href="#assembling-strips-problem-programatically" title="Permanent link">Link</a></h4>
+<p>Shows how to define a STRIPS planning problem programatically.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/assembling_strips_problems</span>
+</code></pre></div>
+
+
+<h4 id="successor-generators">Successor Generators<a class="headerlink" href="#successor-generators" title="Permanent link">Link</a></h4>
+<p>Discusses and compares different ways of generating successors during
+search.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/successor_generation</span>
+</code></pre></div>
+
+
+<h4 id="open-lists">Open Lists<a class="headerlink" href="#open-lists" title="Permanent link">Link</a></h4>
+<p>Discusses and compares different ways of creating open lists for your
+search algortithm.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/fibonacci_open</span>
+</code></pre></div>
+
+
+<h4 id="bfs-engine-variations">BFS engine variations<a class="headerlink" href="#bfs-engine-variations" title="Permanent link">Link</a></h4>
+<p>Shows how can one assemble available components to deliver a planner
+built around a BFS search engine, with multiple queues and secondary
+heuristics, on a parametrized planning task.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/bfs</span>
+<span class="err">* agnostic-examples/bfs-double-queue </span>
+<span class="err">* agnostic-examples/bfs-double-queue-secondary-heuristic</span>
+</code></pre></div>
+
+
+<h4 id="bfs-h_max-greedydelayedanytime-ff-parser">BFS + h_max (greedy|delayed|anytime) + FF-parser<a class="headerlink" href="#bfs-h_max-greedydelayedanytime-ff-parser" title="Permanent link">Link</a></h4>
+<p>Shows how to assemble a classic planner: best-first search using h_max
+with multiple modes: greedy/delayed/anytime, over a task specified in
+PDDL and parsed by FF-parser</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/bfs-hmax</span>
+</code></pre></div>
+
+
+<h4 id="wa-variations-landmarks">WA* variations + landmarks<a class="headerlink" href="#wa-variations-landmarks" title="Permanent link">Link</a></h4>
+<p>Shows how can one assemble available components to deliver a planner
+built around a WA* search engine, with multiple queues and secondary
+heuristics, on a parametrized planning task. Illustrates as well how to
+use landmark count heurstic.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/wa-planner</span>
+<span class="err">* agnostic-examples/rwa-planner</span>
+</code></pre></div>
+
+
+<h4 id="deadline-aware-search-engine">Deadline Aware Search engine<a class="headerlink" href="#deadline-aware-search-engine" title="Permanent link">Link</a></h4>
+<p>Shows how can one assemble available components to deliver a planner
+built around Deadline Aware Search.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/das</span>
+</code></pre></div>
+
+
+<h4 id="breadth-first-search-ff-parser">Breadth-First search + FF-parser<a class="headerlink" href="#breadth-first-search-ff-parser" title="Permanent link">Link</a></h4>
+<p>Shows how can one assemble available components to deliver a blind
+search planner.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/brfs</span>
+</code></pre></div>
+
+
+<h4 id="h_c-compilations-ff-parser">h_C compilations + FF-parser<a class="headerlink" href="#h_c-compilations-ff-parser" title="Permanent link">Link</a></h4>
+<p>Shows how can one use the \Pi_C compilation to compute the h_C
+heuristic. <a href="http://www.aaai.org/ocs/index.php/ICAPS/ICAPS12/paper/viewFile/4568%26lt%3B/4722">Keyder et al. ICAPS
+2012</a></p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/h_C_heuristics</span>
+</code></pre></div>
+
+
+<h4 id="replanner-changing-init-and-goal-situation-on-the-fly">Replanner (changing init and goal situation on the fly)<a class="headerlink" href="#replanner-changing-init-and-goal-situation-on-the-fly" title="Permanent link">Link</a></h4>
+<p>Shows how to create a replanner. It illustrates how to change the
+initial and goal states without having to parse the problem again,
+solving it with bfs+h_max. In the example we change the initial and
+goal situations by applying the first action of the current plan to
+progress the initial state, and last action of the plan to regress the
+goal.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* agnostic-examples/replanner</span>
+</code></pre></div>
+
+
+<h4 id="width-based-algorithm-fd-parser">Width-Based algorithm + FD parser<a class="headerlink" href="#width-based-algorithm-fd-parser" title="Permanent link">Link</a></h4>
+<p>Shows how SIW is implemented, using novelty function and FD parser</p>
+<div class="codehilite"><pre><span></span><code><span class="err">* planners/siw</span>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../projects/" class="btn btn-neutral float-right" title="Projects">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../gettingStarted/" class="btn btn-neutral" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../gettingStarted/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../projects/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>LAPKT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> LAPKT</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="gettingStarted/">Getting Started</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="modules/">Modules and Planners</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="projects/">Projects</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="" href="https://github.com/LAPKT-dev/LAPKT-public/">GitHub Code</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">LAPKT</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><img alt="image" src="images/logo.png" />
+<strong>LAPKT</strong> stands for the <strong>L</strong>ightweight <strong>A</strong>utomated <strong>P</strong>lanning
+Tool<strong>K</strong>i<strong>T</strong>. </p>
+<p>It aims to make your life easier if your purpose is to create, use or extend basic to advanced Automated Planners. It's an open-source Toolkit written in C++ and Python with simple interfaces
+that give you complete flexibility by decoupling parsers from problem representations and algorithms. It has been succesfully used in embedded systems, webservices, compilations, replanning and contains some of the high-performance planners from the last International Planning Competition 2014.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h2>
+<p>LAPKT separates search engines from the data structures used to represent planning tasks. This second component receives the name of 'interface' since it is indeed the interface that provides the search
+model to be solved. </p>
+<p>At the moment of writing this, the following interfaces are offered:</p>
+<ul>
+<li><code>agnostic</code>: this interface does not depend on a particular planning language, so it is easy to wrap PDDL parsers, separating parsing representation of planning tasks from a representation optimized for off-line planning. This interface should also make easy to integrate STRIPS planners into applications by suitably defining planning tasks programatically.</li>
+<li><code>ff</code>: this interface wraps FF parsing components to obtain <code>agnostic</code> looking tasks.</li>
+<li><code>fd</code>: this interface wraps FD parsing components to obtain <code>agnostic</code> looking tasks.</li>
+</ul>
+<p>Future interfaces planned are:</p>
+<ul>
+<li><code>VAL</code>: this interface wraps VAL parser, which supports parsing of
+    PDDL+ features.</li>
+<li><code>SAS+</code>: this interface is meant to support SAS representations
+    natively. Since there is no SAS-based planning language, this will
+    probably be useful to integrate planners into applications that are
+    able to define SAS planning tasks programatically.</li>
+<li><code>Tarski</code>: this interface will be used to parse, or build STIPS and more expressive models.</li>
+</ul>
+<p>Search engine components are meant to be modular, allowing users of LAPKT to assemble and combine features of different search engines to come up with customized search strategies, within reason and without sacrificing (much) efficiency. In order to do so, LAPKT makes heavy use of C++ templates and the Static Strategy design pattern.</p>
+<h2 id="news">News!<a class="headerlink" href="#news" title="Permanent link">Link</a></h2>
+<h3 id="1m-solver-calls-planningdomains">1M solver calls @ planning.domains<a class="headerlink" href="#1m-solver-calls-planningdomains" title="Permanent link">Link</a></h3>
+<p>One of our planners, <a href="https://github.com/LAPKT-dev/LAPKT-public/tree/master/planners/siw_plus-then-bfs_f-ffparser">siw-then-bfs</a> has reached over 1M calls in the remote solver handling the calls in the <a href="http://editor.planning.domains/">editor.planning.domains</a></p>
+<blockquote class="twitter-tweet" data-lang="en"> <a href="https://twitter.com/cjmuise/status/1263538966046916608">May 22, 2020</a></blockquote>
+
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h3 id="sparkle-planning-challenge-2019">Sparkle Planning Challenge 2019<a class="headerlink" href="#sparkle-planning-challenge-2019" title="Permanent link">Link</a></h3>
+<p>The Sparkle Planning Challenge automatically combines all participating planners into a state-of-the-art planning selector, and assesses the contribution of each participating planner to the performance of that planning selector.</p>
+<p><a href="http://ada.liacs.nl/events/sparkle-planning-19/results.html">Results</a> and <a href="http://ada.liacs.nl/events/sparkle-planning-19/documents/slides/Sparkle_ICAPS.pdf">Slides</a></p>
+<p><center></p>
+<h4 id="winner-probe">WINNER: PROBE<a class="headerlink" href="#winner-probe" title="Permanent link">Link</a></h4>
+<h4 id="runner-up-dual-bfws">RUNNER-UP: DUAL-BFWS<a class="headerlink" href="#runner-up-dual-bfws" title="Permanent link">Link</a></h4>
+<p></center></p>
+<p>The planners that got the <strong>1st and 2nd positions</strong> were <strong>PROBE</strong> (based on an early version of LAPKT) and <strong>DUAL-BFWS</strong>.</p>
+<h3 id="international-planning-competition-ipc-2018">International Planning Competition (IPC) 2018<a class="headerlink" href="#international-planning-competition-ipc-2018" title="Permanent link">Link</a></h3>
+<p><a href="https://ipc2018-classical.bitbucket.io/#results">Results</a> and <a href="https://ipc2018-classical.bitbucket.io/scores.html">scores
+overview</a></p>
+<p><center></p>
+<h4 id="winner-of-the-agile-track">WINNER of the Agile Track<a class="headerlink" href="#winner-of-the-agile-track" title="Permanent link">Link</a></h4>
+<p><strong>BFWS-preference</strong></p>
+<p>corresponds to <a href="https://github.com/nirlipo/BFWS-public">BFWS planner</a> using option</p>
+<div class="codehilite"><pre><span></span><code><span class="err">--BFWS-f5</span>
+</code></pre></div>
+
+
+<p></center>
+<center></p>
+<h4 id="runner-up-of-the-satisficing-track">RUNNER-UP of the Satisficing Track<a class="headerlink" href="#runner-up-of-the-satisficing-track" title="Permanent link">Link</a></h4>
+<p><strong>DUAL-BFWS</strong></p>
+<p>corresponds to <a href="https://github.com/nirlipo/BFWS-public">BFWS planner</a> using option </p>
+<div class="codehilite"><pre><span></span><code><span class="err">--DUAL-BFWS</span>
+</code></pre></div>
+
+
+<p></center></p>
+<p>For more information about submitted BFWS planners, read this summary <a href="https://ipc2018-classical.bitbucket.io/planner-abstracts/teams_1_20_30_31_36_47.pdf">width-ipc-paper</a></p>
+<h3 id="ipc-2014-agile-track">IPC 2014 Agile track<a class="headerlink" href="#ipc-2014-agile-track" title="Permanent link">Link</a></h3>
+<p>Once we fixed the bug on the submission of <a href="http://helios.hud.ac.uk/scommv/IPC-14/">IPC'8</a> (International Planning Competition 2014), we were computing $h^2$ but not using it, our planners <strong>BFS_f, DFS+, and SIW+</strong> are the <strong>fastest in the AGILE track (minimize CPU time)</strong> compared to the last winner, according to our experiments using the benchmarks from the competition.</p>
+<h2 id="contact-contributing">Contact &amp; Contributing<a class="headerlink" href="#contact-contributing" title="Permanent link">Link</a></h2>
+<p>We welcome anybody in the planning community to contribute into LAPKT, either by just using it or by submitting code implementing stuff they feel should be in an \"Automated Planning Toolkit\". We only request two things from you. First, to abide to the terms and conditions of the Apache License,      Version 2.0, January 2004 (http://www.apache.org/licenses/). Second, to drop a note on us telling about what you plan to add or what you think should be changed.</p>
+<p>You can contribute to LAPKT by submitting code or discussing <a href="https://github.com/LAPKT-dev/LAPKT-public/issues">issues @ github</a>.</p>
+<p>General questions: Miquel Ramirez and Nir Lipovetzky \&lt;firstname.surname\@unimelb.edu.au></p>
+<h2 id="citing-lapkt">Citing LAPKT<a class="headerlink" href="#citing-lapkt" title="Permanent link">Link</a></h2>
+<p>You can use cite LAPKT in your publications like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="x"> @misc{lapkt,</span>
+<span class="x">   title = </span><span class="cp">{{</span><span class="nv">Lightweight</span> <span class="nv">Automated</span> <span class="nv">Planning</span> <span class="nv">ToolKiT</span><span class="cp">}}</span><span class="x">,</span>
+<span class="x">   author = {Miquel Ramirez and Nir Lipovetzky and Christian Muise},</span>
+<span class="x">   howpublished = {\url{http://lapkt.org/}},</span>
+<span class="x">   year = {2015},</span>
+<span class="x">   note = {Accessed: 2020}</span>
+<span class="x">}</span>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gettingStarted/" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="gettingStarted/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-09-07 05:52:23.834424+00:00
+-->
