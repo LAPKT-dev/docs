@@ -1,6 +1,5 @@
 site_name: LAPKT
 nav:
-    
     - Home: README.md            
     - Getting Started: gettingStarted.md
     - Modules and Planners: modules.md    
