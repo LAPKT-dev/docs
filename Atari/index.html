@@ -107,76 +107,71 @@
           <div role="main">
             <div class="section">
               
-                <p>In this project we used width-based planning algorithms with a simulator
-instead of a PDDL description. We tested the planners on the The Atari
-2600 games supported in The Arcade Learning Environment (ALE) -- a
-platform for AI research.</p>
+                <p>In this project we used width-based planning algorithms with a simulator instead of a PDDL description. We tested the planners on the The Atari 2600 games supported in The Arcade Learning Environment (ALE) -- a platform for AI research.</p>
 <p>See <a href="http://www.arcadelearningenvironment.org">http://www.arcadelearningenvironment.org</a> for details.</p>
-<p>{{#ev:youtube|<a href="https://www.youtube.com/watch?v=P-603qPMkSg%7C450%7Cright%7CClassical">https://www.youtube.com/watch?v=P-603qPMkSg%7C450%7Cright%7CClassical</a>
-Planners in Action!|frame}}</p>
-<h1 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">Link</a></h1>
-<p>Download the code at <a href="https://github.com/miquelramirez/ALE-Atari-Width/archive/master.zip">zip
-file</a>
-or copy the repository using the following command</p>
+<p><a href="http://www.youtube.com/watch?v=P-603qPMkSg" title="Watch Classical Planners in Action!"><img alt="" src="http://img.youtube.com/vi/P-603qPMkSg/0.jpg" /></a></p>
+<h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">Link</a></h2>
+<p>Download the code at <a href="https://github.com/miquelramirez/ALE-Atari-Width/archive/master.zip">zip file</a> or copy the repository using the following command</p>
 <div class="codehilite"><pre><span></span><code><span class="err">git clone https://github.com/miquelramirez/ALE-Atari-Width.git &lt;directory&gt;</span>
 </code></pre></div>
 
 
-<p>will create a clone of the ALE master repository containing the game
-engine with the planners and the roms files of the tested games in
-<directory>. The directory is created if it does not yet exist.</p>
-<h1 id="atari-width-based-planners">Atari Width-based planners<a class="headerlink" href="#atari-width-based-planners" title="Permanent link">Link</a></h1>
+<p>will create a clone of the ALE master repository containing the game engine with the planners and the roms files of the tested games in <code>&lt;directory&gt;</code>. The directory is created if it does not yet exist.</p>
+<h2 id="atari-width-based-planners">Atari Width-based planners<a class="headerlink" href="#atari-width-based-planners" title="Permanent link">Link</a></h2>
 <p>The Classical Planning algorithms are located in:</p>
 <h3 id="iw1">IW(1)<a class="headerlink" href="#iw1" title="Permanent link">Link</a></h3>
-<p><code>*</code><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/IW1Search.hpp"><code>src/agents/IW1Search.hpp</code></a>\
-<code>*</code><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/IW1Search.cpp"><code>src/agents/IW1Search.cpp</code></a></p>
-<h3 id="2bfs">2BFS<a class="headerlink" href="#2bfs" title="Permanent link">Link</a></h3>
-<p><code>*</code><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/BestFirstSearch.hpp"><code>src/agents/BestFirstSearch.hpp</code></a>\
-<code>*</code><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/BestFirstSearch.cpp"><code>src/agents/BestFirstSearch.cpp</code></a></p>
-<p>To compile, rename the makefile either for linux or mac</p>
-<h1 id="running-ale-width-based-planners">Running ALE width-based planners<a class="headerlink" href="#running-ale-width-based-planners" title="Permanent link">Link</a></h1>
-<p>The command to run IW1 is</p>
-<p><code>./ale -display_screen true -discount_factor 0.995 -randomize_successor_novelty true -max_sim_steps_per_frame 150000  -player_agent search_agent -search_method iw1  (ROM_PATH)</code></p>
-<p>The command to run 2BFS is</p>
-<p><code>./ale -display_screen true -discount_factor 0.995 -randomize_successor_novelty true -max_sim_steps_per_frame 150000  -player_agent search_agent -search_method bfs  (ROM_PATH)</code></p>
-<p>and you have to substitute ROM_PATH for any of the games under
-*supported_roms* folder.</p>
 <ul>
-<li>max_sim_steps_per_frame* sets your budget, i.e. how many frames
-    you can expand per lookahead. Each node is 5 frames of game play, so
-    150,000, is equivalent to 30,000 nodes generated. You don\'t need
-    that many to find rewards, so you can use a smaller number to play
-    the game much faster. 150,000 was the parameter chosen by Bellemare
-    et al. The most expensive computation is calling the simulator to
-    generate the successor state.</li>
+<li>
+<p><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/IW1Search.hpp">src/agents/IW1Search.hpp</a></p>
+</li>
+<li>
+<p><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/IW1Search.cpp">src/agents/IW1Search.cpp</a></p>
+</li>
 </ul>
-<h1 id="python-scripts">Python scripts<a class="headerlink" href="#python-scripts" title="Permanent link">Link</a></h1>
-<p>are the ones we wrote to make life easier for experimentation:</p>
-<p><code>* Evaluate_agents.py may help you to run experiments.</code></p>
-<p>We wrote some code to record the games, add the following flag to the
-./ale command</p>
+<h3 id="2bfs">2BFS<a class="headerlink" href="#2bfs" title="Permanent link">Link</a></h3>
+<ul>
+<li>
+<p><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/BestFirstSearch.hpp">src/agents/BestFirstSearch.hpp</a></p>
+</li>
+<li>
+<p><a href="https://github.com/miquelramirez/ALE-Atari-Width/blob/master/src/agents/BestFirstSearch.cpp">src/agents/BestFirstSearch.cpp</a></p>
+</li>
+</ul>
+<p>To compile, rename the makefile either for linux or mac</p>
+<h2 id="running-ale-width-based-planners">Running ALE width-based planners<a class="headerlink" href="#running-ale-width-based-planners" title="Permanent link">Link</a></h2>
+<p>The command to run IW1 is</p>
+<div class="codehilite"><pre><span></span><code><span class="err">./ale -display_screen true -discount_factor 0.995 -randomize_successor_novelty true -max_sim_steps_per_frame 150000  -player_agent search_agent -search_method iw1  (ROM_PATH)`</span>
+</code></pre></div>
+
+
+<p>The command to run 2BFS is</p>
+<div class="codehilite"><pre><span></span><code><span class="err">./ale -display_screen true -discount_factor 0.995 -randomize_successor_novelty true -max_sim_steps_per_frame 150000  -player_agent search_agent -search_method bfs  (ROM_PATH)`</span>
+</code></pre></div>
+
+
+<p>and you have to substitute ROM_PATH for any of the games under <strong>supported_roms</strong> folder.</p>
+<ul>
+<li>max_sim_steps_per_frame* sets your budget, i.e. how many frames you can expand per lookahead. Each node is 5 frames of game play, so 150,000, is equivalent to 30,000 nodes generated. You don\'t need that many to find rewards, so you can use a smaller number to play the game much faster. 150,000 was the parameter chosen by Bellemare et al. The most expensive computation is calling the simulator to generate the successor state.</li>
+</ul>
+<h2 id="python-scripts">Python scripts<a class="headerlink" href="#python-scripts" title="Permanent link">Link</a></h2>
+<p>We wrote scripts to make life easier for experimentation:</p>
+<p>- <code>Evaluate_agents.py</code> may help you to run experiments.</p>
+<p>We wrote some code to record the games, add the following flag to the <code>./ale</code> command</p>
 <p><code>-record_trajectory true</code></p>
 <p>and then you can replay the game using</p>
-<p><code>* replay.py &lt;state_trajectory_alg_game_episode.i file&gt;</code></p>
-<h1 id="videos-papers">Videos / papers<a class="headerlink" href="#videos-papers" title="Permanent link">Link</a></h1>
+<p>- <code>replay.py &lt;state_trajectory_alg_game_episode.i file&gt;</code></p>
+<h2 id="videos-papers">Videos / papers<a class="headerlink" href="#videos-papers" title="Permanent link">Link</a></h2>
 <h3 id="youtube">Youtube<a class="headerlink" href="#youtube" title="Permanent link">Link</a></h3>
 <p>You can watch the width-basd planners in
-<a href="http://www.youtube.com/playlist?list=PLXpQcXUQ_CwenUazUivhXyYvjuS6KQOI0">youtube</a></p>
+<a href="http://www.youtube.com/playlist?list=PLXpQcXUQ_CwenUazUivhXyYvjuS6KQOI0"><img alt="" src="../images/atari_playlist.png" /></a></p>
 <h3 id="paper">Paper<a class="headerlink" href="#paper" title="Permanent link">Link</a></h3>
-<p>You can read more about it in the <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/iw-atari-ijcai-2015.pdf">IJCAI 2015
-paper</a></p>
+<p>You can read more about it in the <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/iw-atari-ijcai-2015.pdf">IJCAI 2015 paper</a></p>
 <h3 id="poster">Poster<a class="headerlink" href="#poster" title="Permanent link">Link</a></h3>
-<p>You can also have a quick introduction to the approach by looking at the
-poster presented in
-<a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/iw-atari-ijcai-2015-poster.pdf">IJCAI</a>
-too.</p>
-<h1 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">Link</a></h1>
-<p>We want to thank Marc Bellemare for making the ALE code available and
-the research group at U. Alberta.</p>
-<p>The Classical Planning algorithms code is adapted from the Lightweight
-Automated Planning Toolkit (www.LAPKT.org).</p>
-<p>This project is a joint work by Nir Lipovetzky, Miquel Ramirez and
-Hector Geffner.</p>
+<p>You can also have a quick introduction to the approach by looking at the poster presented in <a href="http://people.eng.unimelb.edu.au/nlipovetzky/papers/iw-atari-ijcai-2015-poster.pdf">IJCAI</a> too.</p>
+<h2 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">Link</a></h2>
+<p>We want to thank Marc Bellemare for making the ALE code available and the research group at U. Alberta.</p>
+<p>The Classical Planning algorithms code is adapted from the Lightweight Automated Planning Toolkit (www.LAPKT.org).</p>
+<p>This project is a joint work by Nir Lipovetzky, Miquel Ramirez and Hector Geffner.</p>
               
             </div>
           </div>
