@@ -1,0 +1,28 @@
+site_name: LAPKT
+nav:
+    
+    - Home: README.md            
+    - Getting Started: gettingStarted.md
+    - Modules and Planners: modules.md    
+    - Projects: projects.md    
+    - GitHub Code: https://github.com/LAPKT-dev/LAPKT-public/      
+    - Credits: credits.md
+
+theme:
+    name: readthedocs
+    logo: 'images/white_logo.png'  
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+        - bash
+        - python 
+plugins:
+    - search
+    - git-revision-date-localized:
+        type: date
+markdown_extensions: 
+    - toc:
+        permalink: Link
+    - codehilite
+ 
